@@ -1,18 +1,16 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/ethernum/node_modules
-/frontend/node_modules
+/node_modules
 # next.js
 /frontend/.next/
 /frontend/out/
-
 # production
 /frontend/build
 # misc
 .DS_Store
 .env*
-
+.idea
 # debug
 /frontend/npm-debug.log*
 /frontend/yarn-debug.log*
