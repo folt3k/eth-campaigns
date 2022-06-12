@@ -1,0 +1,23 @@
+{
+  "name": "eth-kickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-json-modules ./ethernum/test/campaign.test.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "ganache": "^7.3.0",
+    "path": "^0.12.7",
+    "prettier": "^2.6.2",
+    "solc": "^0.8.14-fixed",
+    "web3": "^1.7.3"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^2.0.9"
+  }
+}
