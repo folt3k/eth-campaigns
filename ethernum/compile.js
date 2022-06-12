@@ -1,10 +1,6 @@
-import path from "path";
-import fs from "fs-extra";
-import solc from "solc";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const path = require("path");
+const fs = require("fs-extra");
+const solc = require("solc");
 
 const buildPath = path.resolve(__dirname, "build");
 const campaignPath = path.resolve(__dirname, "contracts", "Campaign.sol");
@@ -35,7 +31,7 @@ Object.keys(compiled.contracts.campaign).forEach((key) => {
 
   fs.outputFileSync(
     path.resolve(buildPath, `${key}.js`),
-    `export default ${JSON.stringify({
+    `module.exports = ${JSON.stringify({
       bytecode: item.evm.bytecode.object,
       abi: item.abi,
     })}`
