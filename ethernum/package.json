@@ -1,10 +1,8 @@
 {
-  "name": "eth-kickstart",
+  "name": "ethernum",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "node --experimental-json-modules ./ethernum/test/campaign.test.js"
+    "test": "node test/campaign.test.js"
   },
   "type": "module",
   "author": "",
@@ -19,5 +17,6 @@
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^2.0.9"
-  }
+  },
+  "description": ""
 }

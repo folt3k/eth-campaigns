@@ -1,8 +1,8 @@
 import ganache from "ganache";
 import Web3 from "web3";
 
-import compiledCampaign from "../build/Campaign.json";
-import compiledCampaignFactory from "../build/CampaignFactory.json";
+import compiledCampaign from "../build/Campaign.js";
+import compiledCampaignFactory from "../build/CampaignFactory.js";
 
 const web3 = new Web3(
   ganache.provider({
