@@ -1,3 +1,3 @@
 module.exports.METAMASK_TEST_SEED_PHRASE =
   "bunker appear alert august august curve cram orange traffic gossip ankle ice";
-module.exports.CAMPAIGN_FACTORY_ADDRESS = "0xb5DD2588343D8d602ed82aE87EefE601941a6e04";
+module.exports.CAMPAIGN_FACTORY_ADDRESS = "0xF1b2C09d45F1939070c08c294c349EeB72b24992";

@@ -12,7 +12,7 @@
     line-height: 1.6;
     font-size: 14px;
 
-    @apply text-secondary-light;
+    @apply text-secondary-light bg-dark;
   }
 
   * {

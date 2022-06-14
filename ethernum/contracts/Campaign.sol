@@ -31,7 +31,7 @@ contract Campaign {
 
     address payable public manager;
     uint public minContribution;
-    string title;
+    string public title;
     mapping(address => bool) public approvers;
     Request[] public requests;
     uint approversCount = 0;

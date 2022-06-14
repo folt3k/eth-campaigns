@@ -1,9 +1,10 @@
 import { GetServerSideProps } from "next";
 
-import { campaignFactoryContract } from "../../ethernum/contracts.js";
+import { campaignFactoryContract, campaignsDetails } from "../../ethernum/contracts.js";
+import { Campaign } from "../shared/dto/campaign.dto";
 
 type Props = {
-  campaigns: string[];
+  campaigns: Campaign[];
 };
 
 const Home = ({ campaigns }: Props) => {
@@ -17,7 +18,8 @@ const Home = ({ campaigns }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const campaigns = await campaignFactoryContract.methods.getCampaigns().call();
+  const campaignAddresses = await campaignFactoryContract.methods.getCampaigns().call();
+  const campaigns = await Promise.all(campaignAddresses.map((address) => campaignsDetails(address)));
 
   return {
     props: {

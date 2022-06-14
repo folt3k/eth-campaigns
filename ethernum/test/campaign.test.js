@@ -41,6 +41,7 @@ const web3 = new Web3(
 
   const campaignContract = new web3.eth.Contract(compiledCampaign.abi, campaignAddress);
 
+
   // get manager
 
   const manager = await campaignContract.methods.manager().call();
