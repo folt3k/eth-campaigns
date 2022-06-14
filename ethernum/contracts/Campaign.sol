@@ -3,19 +3,19 @@
 pragma  solidity >=0.7.0 <0.9.0;
 
 contract CampaignFactory {
-    address[] public campaigns;
+    // address[] public campaigns;
+    Campaign[] public campaigns;
     event CampaignCreated(address);
 
     function createCampaign(string memory title, uint minContribution) public {
         Campaign campaign = new Campaign(title, minContribution, payable(msg.sender));
         address campaignAddress = address(campaign);
 
-
-        campaigns.push(campaignAddress);
+        campaigns.push(campaign);
         emit CampaignCreated(campaignAddress);
     }
 
-    function getCampaigns() public view returns (address[] memory) {
+    function getCampaigns() public view returns (Campaign[] memory) {
         return campaigns;
     }
 }

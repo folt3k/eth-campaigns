@@ -31,6 +31,12 @@ const web3 = new Web3(
     gas: "10000000",
   });
 
+  // list campaigns
+
+  const campaigns = await campaignFactoryContract.methods.getCampaigns().call();
+
+  console.log("Campaigns: ", campaigns);
+
   const campaignAddress = createdCampaign.events.CampaignCreated.returnValues["0"];
 
   const campaignContract = new web3.eth.Contract(compiledCampaign.abi, campaignAddress);
