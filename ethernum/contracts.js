@@ -21,6 +21,7 @@ export const campaignsDetails = async (address) => {
   ]);
 
   return {
+    address,
     title,
     minContribution,
   };

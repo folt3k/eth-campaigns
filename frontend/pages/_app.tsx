@@ -10,11 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Web3Provider>
       <div>
         <LayoutHeader />
-        <div className="px-6">
-          <div className="mx-auto container">
-            <Component {...pageProps} />
-          </div>
-        </div>
+        <Component {...pageProps} />
       </div>
     </Web3Provider>
   );
