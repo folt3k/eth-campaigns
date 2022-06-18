@@ -5,14 +5,15 @@ import { truncateAddress } from "../../helpers/truncate-address.helper";
 import { WalletIcon } from "../icons/icons";
 import web3 from "../../../../ethernum/web3";
 
-type Props = {};
-
 const LayoutHeader = () => {
-  const { currentAccountAddress, currentAccountBalance } = useContext(Web3Context);
-
-  console.log(currentAccountBalance);
+  const { currentAccountAddress, currentAccountBalance, fetchCurrentAccount } = useContext(Web3Context);
 
   const balance = (+web3.utils.fromWei(currentAccountBalance)).toFixed(3);
+
+  const connectWallet = async () => {
+    await window.ethereum.request({ method: "eth_requestAccounts" });
+    fetchCurrentAccount();
+  };
 
   return (
     <header className="px-6 py-4 bg-gray-700">
@@ -31,7 +32,11 @@ const LayoutHeader = () => {
                 </div>
               </div>
             )}
-            {!currentAccountAddress && <button className="btn">Connect Wallet</button>}
+            {!currentAccountAddress && (
+              <button className="btn" onClick={connectWallet}>
+                Connect Wallet
+              </button>
+            )}
           </div>
         </div>
       </div>
