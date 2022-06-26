@@ -69,4 +69,10 @@ const web3 = new Web3(
   const requests = await campaignContract.methods.requests(0).call();
 
   console.log("Requests: ", requests);
+
+  // show display model
+
+  const model = await campaignContract.methods.displayModel().call();
+
+  console.log("Model: ",model);
 })();

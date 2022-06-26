@@ -11,6 +11,12 @@ type Props = {
 const Home = ({ campaigns = [] }: Props) => {
   console.log(campaigns);
 
+  // useEffect(() => {
+  //   campaignFactoryContract.methods.createCampaign("Moja nowa kompania", "2500").send({
+  //     from: '0x83b69C793ED29fB7CDCfd326f910cD32F8b6F89b'
+  //   })
+  // })
+
   return (
     <div>
       <div className="px-8 bg-gradient-to-r from-indigo-900 to-purple-900">
@@ -27,7 +33,7 @@ const Home = ({ campaigns = [] }: Props) => {
         <div className="container mx-auto">
           <div className="grid grid-cols-4 gap-6">
             {campaigns.map((campaign) => (
-              <CampaignListItem key={campaign.address} data={campaign} />
+              <CampaignListItem key={campaign.contractAddress} data={campaign} />
             ))}
           </div>
         </div>

@@ -14,15 +14,16 @@ export const campaignContract = (contractAddress) =>
 
 export const campaignsDetails = async (address) => {
   const contract = campaignContract(address);
-
-  const [title, minContribution] = await Promise.all([
-    contract.methods.title().call(),
-    contract.methods.minContribution().call(),
-  ]);
+  const [contractAddress, title, minContribution, manager, approversCount, requestsCount, balance] =
+    await contract.methods.displayModel().call();
 
   return {
-    address,
+    contractAddress,
     title,
     minContribution,
+    manager,
+    approversCount,
+    requestsCount,
+    balance,
   };
 };

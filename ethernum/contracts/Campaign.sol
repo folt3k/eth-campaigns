@@ -29,6 +29,16 @@ contract Campaign {
         mapping(address => bool) approvals;
     }
 
+    struct CampaignDisplayModel {
+        address contractAddress;
+        string title;
+        uint minContribution;
+        address manager;
+        uint approversCount;
+        uint requestsCount;
+        uint balance;
+    }
+
     address payable public manager;
     uint public minContribution;
     string public title;
@@ -80,7 +90,22 @@ contract Campaign {
         req.completed = true;
     }
 
-    modifier onlyManager() {
+    function displayModel() public view returns(CampaignDisplayModel memory) {
+        CampaignDisplayModel memory model = CampaignDisplayModel({
+            contractAddress: address(this),
+            title: title,
+             manager: manager,
+             minContribution: minContribution,
+             approversCount: approversCount,
+             requestsCount: requests.length,
+             balance: address(this).balance
+        });
+
+
+        return model;
+    }
+
+    modifier onlyminContributionManager() {
         require(msg.sender == manager, "You are not the owner.");
         _;
     }

@@ -1,5 +1,9 @@
 export interface Campaign {
-  address: string;
   title: string;
   minContribution: string;
+  contractAddress: string
+  manager: string;
+  approversCount: number;
+  requestsCount: number;
+  balance: string;
 }
