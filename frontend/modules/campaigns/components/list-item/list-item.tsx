@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { Campaign } from "../../../../shared/dto/campaign.dto";
 
 type Props = {
@@ -13,7 +15,9 @@ const CampaignListItem = ({ data }: Props) => {
       </span>
       <div className="flex flex-col mt-8">
         <div className="mb-2 uppercase font-bold text-xs">Became a contributor</div>
-        <button className="btn btn-xl">View details</button>
+        <Link href={data.contractAddress}>
+          <button className="btn btn-xl">View details</button>
+        </Link>
       </div>
     </div>
   );

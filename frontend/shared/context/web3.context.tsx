@@ -16,7 +16,12 @@ const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   const [currentAccountBalance, setCurrentAccountBalance] = React.useState<string>("0");
 
   useEffect(() => {
-    fetchCurrentAccount();
+    const requestAccount = async () => {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      fetchCurrentAccount();
+    };
+
+    requestAccount();
   }, []);
 
   const fetchCurrentAccount = async () => {
