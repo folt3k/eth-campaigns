@@ -13,19 +13,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@metamask/providers": "^9.0.0",
+    "date-fns": "^2.11.1",
     "fs-extra": "^10.1.0",
     "ganache": "^7.3.0",
-    "path": "^0.12.7",
-    "solc": "^0.8.14-fixed",
-    "web3": "^1.7.3",
-    "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "next": "latest",
+    "path": "^0.12.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-toastify": "^9.0.5",
     "remark": "^14.0.1",
     "remark-html": "^15.0.0",
-    "@metamask/providers": "^9.0.0"
+    "solc": "^0.8.14-fixed",
+    "web3": "^1.7.3"
   },
   "devDependencies": {
     "@truffle/hdwallet-provider": "^2.0.9",

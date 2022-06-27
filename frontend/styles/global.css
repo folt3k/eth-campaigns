@@ -30,6 +30,12 @@
   svg {
     margin: 0;
   }
+
+
+  :root {
+    --toastify-color-success: rgb(31, 199, 212) !important;
+    --toastify-color-dark: #1d1c26 !important;
+  }
 }
 
 @layer components {
@@ -39,6 +45,24 @@
 
   .btn-xl {
     @apply py-4;
+  }
+
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 6em;
+    height: 6em;
+  }
+  .loader {
+    margin: 0 auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: .3rem solid rgba(255, 255, 255, 0.2);
+    border-right: .3rem solid rgba(255, 255, 255, 0.2);
+    border-bottom: .3rem solid rgba(255, 255, 255, 0.2);
+    border-left: .3rem solid #ffffff;
+    @apply animate-spin;
   }
 }
 

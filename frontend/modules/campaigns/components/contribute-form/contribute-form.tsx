@@ -1,6 +1,9 @@
 import React, { SyntheticEvent, useContext, useRef } from "react";
+import { toast } from "react-toastify";
+
 import { campaignContract } from "../../../../../ethernum/contracts";
 import { Web3Context } from "../../../../shared/context/web3.context";
+import { LoaderContext } from "../../../../shared/context/loader.context";
 
 type Props = {
   campaignAddress: string;
@@ -9,18 +12,26 @@ type Props = {
 const CampaignContributeForm = ({ campaignAddress }: Props) => {
   const contributeAmountInputRef = useRef<HTMLInputElement>(null);
   const { currentAccountAddress } = useContext(Web3Context);
+  const { showLoader, hideLoader } = useContext(LoaderContext);
 
   const onSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
 
     const contract = campaignContract(campaignAddress);
-    const value = +contributeAmountInputRef.current.value;
+    const value = contributeAmountInputRef.current.value;
 
     if (value) {
-      await contract.methods.contribute().send({
-        from: currentAccountAddress,
-        value: value,
-      });
+      showLoader();
+      try {
+        await contract.methods.contribute().send({
+          from: currentAccountAddress,
+          value: "100000000000000",
+        });
+        toast.success("You have successfully contributed this campaign!");
+      } catch (e) {
+        toast.error("Something went wrong.");
+      }
+      hideLoader();
     }
   };
 
