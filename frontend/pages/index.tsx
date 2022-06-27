@@ -9,8 +9,6 @@ type Props = {
 };
 
 const Home = ({ campaigns = [] }: Props) => {
-  console.log(campaigns);
-
   // useEffect(() => {
   //   campaignFactoryContract.methods.createCampaign("Moja nowa kompania", "2500").send({
   //     from: '0x83b69C793ED29fB7CDCfd326f910cD32F8b6F89b'
