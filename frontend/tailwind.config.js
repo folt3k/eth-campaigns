@@ -8,6 +8,7 @@ module.exports = {
         primary: "rgb(31, 199, 212)",
         "primary-dark": "rgb(16,149,159)",
         secondary: "rgb(154, 106, 255)",
+        "secondary-dark": "rgb(55, 47, 71)",
         "secondary-light": "rgb(198,187,223)",
         white: "#ffffff",
         dark: "#08060b",
